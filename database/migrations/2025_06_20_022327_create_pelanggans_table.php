@@ -11,7 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('pelanggans', function (Blueprint $table) {
+            $table->id();
+            $table->string('id_pelanggan');
+            $table->string('nm_pelanggan');
+            $table->string('hp_pelanggan');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('pelanggans');
     }
 };
