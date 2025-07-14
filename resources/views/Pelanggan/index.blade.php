@@ -6,14 +6,15 @@
     <meta charset="utf-8">
     <meta name="author" content="Softnio">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="A powerful and conceptual apps base dashboard template that especially build for developers and programmers.">
+    <meta name="description"
+        content="A powerful and conceptual apps base dashboard template that especially build for developers and programmers.">
     <!-- Fav Icon  -->
-    <link rel="shortcut icon" href="{{asset('/images/favicon.png')}}">
+    <link rel="shortcut icon" href="{{ asset('/images/favicon.png') }}">
     <!-- Page Title  -->
     <title>Percetakan</title>
     <!-- StyleSheets  -->
-    <link rel="stylesheet" href="{{asset('/assets/css/dashlite.css?ver=3.2.2')}}">
-    <link id="skin-default" rel="stylesheet" href="{{asset('/assets/css/theme.css?ver=3.2.2')}}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/dashlite.css?ver=3.2.2') }}">
+    <link id="skin-default" rel="stylesheet" href="{{ asset('/assets/css/theme.css?ver=3.2.2') }}">
     <!-- Font Awesome CDN -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
@@ -26,13 +27,17 @@
             <div class="nk-sidebar nk-sidebar-fixed is-dark " data-content="sidebarMenu">
                 <div class="nk-sidebar-element nk-sidebar-head">
                     <div class="nk-menu-trigger">
-                        <a href="#" class="nk-nav-toggle nk-quick-nav-icon d-xl-none" data-target="sidebarMenu"><em class="icon ni ni-arrow-left"></em></a>
-                        <a href="#" class="nk-nav-compact nk-quick-nav-icon d-none d-xl-inline-flex" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
+                        <a href="#" class="nk-nav-toggle nk-quick-nav-icon d-xl-none"
+                            data-target="sidebarMenu"><em class="icon ni ni-arrow-left"></em></a>
+                        <a href="#" class="nk-nav-compact nk-quick-nav-icon d-none d-xl-inline-flex"
+                            data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
                     </div>
                     <div class="nk-sidebar-brand">
                         <a href="/" class="logo-link nk-sidebar-logo">
-                            <img class="logo-light logo-img" src="./images/logo.png" srcset="./images/logo2x.png 2x" alt="logo">
-                            <img class="logo-dark logo-img" src="./images/logo-dark.png" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
+                            <img class="logo-light logo-img" src="./images/logo.png" srcset="./images/logo2x.png 2x"
+                                alt="logo">
+                            <img class="logo-dark logo-img" src="./images/logo-dark.png"
+                                srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
                         </a>
                     </div>
                 </div><!-- .nk-sidebar-element -->
@@ -62,7 +67,7 @@
                                         <span class="nk-menu-text">Karyawan</span>
                                     </a>
                                 </li><!-- .nk-menu-item -->
-                                    </ul><!-- .nk-menu-sub -->
+                            </ul><!-- .nk-menu-sub -->
                         </div><!-- .nk-sidebar-menu -->
                     </div><!-- .nk-sidebar-content -->
                 </div><!-- .nk-sidebar-element -->
@@ -75,12 +80,15 @@
                     <div class="container-fluid">
                         <div class="nk-header-wrap">
                             <div class="nk-menu-trigger d-xl-none ms-n1">
-                                <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
+                                <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em
+                                        class="icon ni ni-menu"></em></a>
                             </div>
                             <div class="nk-header-brand d-xl-none">
                                 <a href="html/index.html" class="logo-link">
-                                    <img class="logo-light logo-img" src="./images/logo.png" srcset="./images/logo2x.png 2x" alt="logo">
-                                    <img class="logo-dark logo-img" src="./images/logo-dark.png" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
+                                    <img class="logo-light logo-img" src="./images/logo.png"
+                                        srcset="./images/logo2x.png 2x" alt="logo">
+                                    <img class="logo-dark logo-img" src="./images/logo-dark.png"
+                                        srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
                                 </a>
                             </div><!-- .nk-header-brand -->
                             <div class="nk-header-news d-none d-xl-block">
@@ -118,10 +126,18 @@
                                             </div>
                                             <div class="dropdown-inner">
                                                 <ul class="link-list">
-                                                    <li><a href="html/user-profile-regular.html"><em class="icon ni ni-user-alt"></em><span>View Profile</span></a></li>
-                                                    <li><a href="html/user-profile-setting.html"><em class="icon ni ni-setting-alt"></em><span>Account Setting</span></a></li>
-                                                    <li><a href="html/user-profile-activity.html"><em class="icon ni ni-activity-alt"></em><span>Login Activity</span></a></li>
-                                                    <li><a class="dark-switch" href="#"><em class="icon ni ni-moon"></em><span>Dark Mode</span></a></li>
+                                                    <li><a href="html/user-profile-regular.html"><em
+                                                                class="icon ni ni-user-alt"></em><span>View
+                                                                Profile</span></a></li>
+                                                    <li><a href="html/user-profile-setting.html"><em
+                                                                class="icon ni ni-setting-alt"></em><span>Account
+                                                                Setting</span></a></li>
+                                                    <li><a href="html/user-profile-activity.html"><em
+                                                                class="icon ni ni-activity-alt"></em><span>Login
+                                                                Activity</span></a></li>
+                                                    <li><a class="dark-switch" href="#"><em
+                                                                class="icon ni ni-moon"></em><span>Dark Mode</span></a>
+                                                    </li>
                                                 </ul>
                                             </div>
                                             <div class="dropdown-inner">
@@ -129,7 +145,8 @@
                                                     <li>
                                                         <form method="POST" action="{{ route('logout') }}">
                                                             @csrf
-                                                            <button type="submit" class="btn btn-link text-dark d-flex align-items-center px-0">
+                                                            <button type="submit"
+                                                                class="btn btn-link text-dark d-flex align-items-center px-0">
                                                                 <em class="icon ni ni-signout me-1"></em>
                                                                 <span>Sign out</span>
                                                             </button>
@@ -152,7 +169,9 @@
                             <div class="nk-content-body">
                                 {{-- <p>Starter page for general layout.</p> --}}
                                 <div class="card-header">
-                                    <div class="d-flex justify-content-start mb-3"><a href="/Pelanggan/tambah" class="btn btn-primary btn-sm"><i class="fa-solid fa-user-plus"></i> Tambah Data</a></div>
+                                    <div class="d-flex justify-content-start mb-3"><a href="/Pelanggan/tambah"
+                                            class="btn btn-primary btn-sm"><i class="fa-solid fa-user-plus"></i>
+                                            Tambah Data</a></div>
                                 </div>
                                 <div class="card-body">
                                     <table class="table">
@@ -166,41 +185,55 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @forelse ( $pelanggan as $data)
+                                            @forelse ($pelanggan as $data)
                                                 <tr>
-                                                    <th scope="row">{{$nomor++}}</th>
-                                                    <td>{{$data->id_pelanggan}}</td>
-                                                    <td>{{$data->nm_pelanggan}}</td>
-                                                    <td>{{$data->hp_pelanggan}}</td>
+                                                    <th scope="row">{{ $nomor++ }}</th>
+                                                    <td>{{ $data->id_pelanggan }}</td>
+                                                    <td>{{ $data->nm_pelanggan }}</td>
+                                                    <td>{{ $data->hp_pelanggan }}</td>
                                                     <td>
-                                                        <a href="/Pelanggan/edit/{{$data->id}}" class="btn btn-info btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
+                                                        <a href="/Pelanggan/edit/{{ $data->id }}"
+                                                            class="btn btn-info btn-sm"><i
+                                                                class="fa-solid fa-pen-to-square"></i></a>
 
                                                         <!-- Button trigger modal -->
-                                                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{$data->id}}">
-                                                        <i class="fa-solid fa-trash"></i>
+                                                        <button type="button" class="btn btn-danger btn-sm"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#exampleModal{{ $data->id }}">
+                                                            <i class="fa-solid fa-trash"></i>
                                                         </button>
 
                                                         <!-- Modal -->
-                                                        <div class="modal fade" id="exampleModal{{$data->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Peringatan</h1>
-                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        <div class="modal fade" id="exampleModal{{ $data->id }}"
+                                                            tabindex="-1" aria-labelledby="exampleModalLabel"
+                                                            aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h1 class="modal-title fs-5"
+                                                                            id="exampleModalLabel">Peringatan</h1>
+                                                                        <button type="button" class="btn-close"
+                                                                            data-bs-dismiss="modal"
+                                                                            aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        Yakin Data Pelanggan {{ $data->nm_pelanggan }}
+                                                                        ingin dihapus?
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button"
+                                                                            class="btn btn-secondary"
+                                                                            data-bs-dismiss="modal">Batal</button>
+                                                                        <form action="Pelanggan/{{ $data->id }}"
+                                                                            method="post">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button type="submit"
+                                                                                class="btn btn-danger">Hapus</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                            <div class="modal-body">
-                                                                Yakin Data Pelanggan {{$data->nm_pelanggan}} ingin dihapus?
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                                                <form action="Pelanggan/{{$data->id}}" method="post">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                    <button type="submit" class="btn btn-danger">Hapus</button>
-                                                                </form>
-                                                            </div>
-                                                            </div>
-                                                        </div>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -221,20 +254,21 @@
                 <div class="nk-footer">
                     <div class="container-fluid">
                         <div class="nk-footer-wrap">
-                            <div class="nk-footer-copyright"> &copy; 2025 DashLite. Template by Adha Mastalul A'la</div>
+                            <div class="nk-footer-copyright"> &copy; 2025 DashLite. Template by Adha Mastalul A'la
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- footer @e -->
             </div>
-            <!-- wrap @e -->
+            <!-- footer @e -->
         </div>
-        <!-- main @e -->
+        <!-- wrap @e -->
+    </div>
+    <!-- main @e -->
     <!-- app-root @e -->
     <!-- JavaScript -->
-    <script src="{{asset('/assets/js/bundle.js?ver=3.2.2')}}"></script>
-    <script src="{{asset('/assets/js/scripts.js?ver=3.2.2')}}"></script>
+    <script src="{{ asset('/assets/js/bundle.js?ver=3.2.2') }}"></script>
+    <script src="{{ asset('/assets/js/scripts.js?ver=3.2.2') }}"></script>
 </body>
 
 </html>

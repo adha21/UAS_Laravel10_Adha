@@ -161,14 +161,9 @@
                                             <tr>
                                                 <th scope="col">#</th>
                                                 <th scope="col">ID Pemesanan</th>
-                                                <th scope="col">ID Pelanggan</th>
                                                 <th scope="col">Tanggal Pesan</th>
                                                 <th scope="col">Produk</th>
                                                 <th scope="col">Harga</th>
-                                                <th scope="col">Jumlah</th>
-                                                <th scope="col">Ukuran</th>
-                                                <th scope="col">ID Karyawan</th>
-                                                <th scope="col">Tanggal Selesai</th>
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
@@ -177,16 +172,90 @@
                                                 <tr>
                                                     <th scope="row">{{$nomor++}}</th>
                                                     <td>{{$data->id_pemesanan}}</td>
-                                                    <td>{{$data->id_pelanggan}}</td>
                                                     <td>{{$data->tgl_pesan}}</td>
                                                     <td>{{$data->produk}}</td>
                                                     <td>{{$data->harga}}</td>
-                                                    <td>{{$data->jumlah}}</td>
-                                                    <td>{{$data->ukuran}}</td>
-                                                    <td>{{$data->id_karyawan}}</td>
-                                                    <td>{{$data->tgl_selesai}}</td>
                                                     <td>
+                                                        <!-- Tombol -->
+                                                        <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#detailModal{{$data->id}}">
+                                                            <i class="fa fa-info"></i>
+                                                        </button>
+
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="detailModal{{$data->id}}" tabindex="-1" aria-labelledby="detailModalLabel{{$data->id}}" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h1 class="modal-title fs-5" id="detailModalLabel{{$data->id}}">Detail Pemesanan</h1>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+
+                                                                        <table class="table">
+
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                <td>ID Pemesanan</td>
+                                                                                <td>: {{$data->id_pemesanan}}</td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                <td>ID Pelanggan</td>
+                                                                                <td>: {{$data->id_pelanggan}}</td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                <td>Tanggal Pesan</td>
+                                                                                <td>: {{$data->tgl_pesan}} </td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                <td>Produk</td>
+                                                                                <td>: {{$data->produk}}</td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                <td>Harga</td>
+                                                                                <td>: {{$data->harga}}</td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                <td>Jumlah Pesanan</td>
+                                                                                <td>: {{$data->jumlah}}</td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                <td>Ukuran</td>
+                                                                                <td>: {{$data->ukuran}}</td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                <td>ID Karyawan</td>
+                                                                                <td>: {{$data->id_karyawan}}</td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                <td>Tanggal Selesai</td>
+                                                                                <td>: {{$data->tgl_selesai}}</td>
+                                                                                </tr>
+
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                        </div>
+                                                        </div>
+                                                        {{-- end of detail --}}
+
+                                                        {{-- edit --}}
                                                         <a href="/Pemesanan/edit/{{$data->id}}" class="btn btn-info btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
+                                                        {{-- edit end --}}
 
                                                         <!-- Button trigger modal -->
                                                         <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{$data->id}}">
@@ -248,6 +317,7 @@
     <!-- JavaScript -->
     <script src="{{asset('/assets/js/bundle.js?ver=3.2.2')}}"></script>
     <script src="{{asset('/assets/js/scripts.js?ver=3.2.2')}}"></script>
+
 </body>
 
 </html>
