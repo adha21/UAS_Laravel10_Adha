@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Karyawan;
+use App\Models\Pelanggan;
 use App\Models\Pemesanan;
+use Illuminate\Http\Request;
 
 class pemesananController extends Controller
 {
@@ -25,8 +27,10 @@ class pemesananController extends Controller
     // menampilkan form tambah
     public function create()
     {
+        $pelanggan = Pelanggan::all();
+        $karyawan = Karyawan::all();
         $pemesanan = new \App\Models\Pemesanan(); // objek kosong
-        return view('Pemesanan.form', compact('pemesanan'));
+        return view('Pemesanan.form', compact('pemesanan','pelanggan','karyawan'));
     }
 
 
@@ -37,14 +41,14 @@ class pemesananController extends Controller
     {
         // proses tambah
         $pemesanan = new Pemesanan;
-        $pemesanan->id_pemesanan = $request->id_pemesanan;
+        $pemesanan->kode_pemesanan = $request->kode_pemesanan;
         $pemesanan->id_pelanggan = $request->id_pelanggan;
+        $pemesanan->id_karyawan = $request->id_karyawan;
         $pemesanan->tgl_pesan = $request->tgl_pesan;
         $pemesanan->produk = $request->produk;
         $pemesanan->harga = $request->harga;
         $pemesanan->jumlah = $request->jumlah;
         $pemesanan->ukuran = $request->ukuran;
-        $pemesanan->id_karyawan = $request->id_karyawan;
         $pemesanan->tgl_selesai = $request->tgl_selesai;
         $pemesanan->save();
 
@@ -66,7 +70,9 @@ class pemesananController extends Controller
     {
         // form edit
         $pemesanan = Pemesanan::find($id);
-        return view('Pemesanan.edit',compact('pemesanan'));
+        $pelanggan = Pelanggan::all();
+        $karyawan = Karyawan::all();
+        return view('Pemesanan.edit',compact('pemesanan','pelanggan','karyawan'));
     }
 
     /**
@@ -76,16 +82,17 @@ class pemesananController extends Controller
     {
         // proses edit
         $pemesanan = Pemesanan::find($id);
-        $pemesanan->id_pemesanan = $request->id_pemesanan;
+        $pemesanan->kode_pemesanan = $request->kode_pemesanan;
         $pemesanan->id_pelanggan = $request->id_pelanggan;
+        $pemesanan->id_karyawan = $request->id_karyawan;
         $pemesanan->tgl_pesan = $request->tgl_pesan;
         $pemesanan->produk = $request->produk;
         $pemesanan->harga = $request->harga;
         $pemesanan->jumlah = $request->jumlah;
         $pemesanan->ukuran = $request->ukuran;
-        $pemesanan->id_karyawan = $request->id_karyawan;
         $pemesanan->tgl_selesai = $request->tgl_selesai;
         $pemesanan->save();
+
 
         return redirect('/Pemesanan');
     }

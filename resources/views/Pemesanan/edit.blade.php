@@ -160,11 +160,16 @@
                                                         @method('PUT')
                                                         <div class="mb-3">
                                                             <label for="exampleInputEmail1" class="form-label">ID Pemesanan</label>
-                                                            <input type="text" value="{{$pemesanan->id_pemesanan}}" name="id_pemesanan" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                            <input type="text" value="{{$pemesanan->kode_pemesanan}}" name="kode_pemesanan" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="exampleInputPassword1" class="form-label">ID Pelanggan</label>
-                                                            <input type="text" value="{{$pemesanan->id_pelanggan}}" name="id_pelanggan" class="form-control" id="exampleInputPassword1">
+                                                            <label for="exampleInputPassword1" class="form-label">Pelanggan</label>
+                                                            <select name="id_pelanggan" id="" class="form-control">
+                                                                <option value="">-Pilih Pelanggan-</option>
+                                                                @foreach ($pelanggan as $item)
+                                                                    <option {{$pemesanan->id_pelanggan == $item->id ? 'selected' :''}} value="{{$item->id}}">{{$item->nm_pelanggan}}</option>
+                                                                @endforeach
+                                                            </select>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="exampleInputPassword1" class="form-label">Tanggal Pesan</label>
@@ -192,8 +197,13 @@
                                                             </select>
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="exampleInputPassword1" class="form-label">ID Karyawan</label>
-                                                            <input type="text" value="{{$pemesanan->id_karyawan}}" name="id_karyawan" class="form-control" id="exampleInputPassword1">
+                                                            <label for="exampleInputPassword1" class="form-label">Karyawan</label>
+                                                            <select name="id_karyawan" id="" class="form-control">
+                                                                <option value="">-Pilih Karyawan-</option>
+                                                                @foreach ($karyawan as $item)
+                                                                    <option {{$pemesanan->id_karyawan == $item->id ? 'selected' :''}} value="{{$item->id}}">{{$item->nm_karyawan}}</option>
+                                                                @endforeach
+                                                            </select>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="exampleInputPassword1" class="form-label">Tanggal Selesai</label>

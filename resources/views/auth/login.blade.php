@@ -44,17 +44,16 @@
                                 <form method="POST" action="{{ route('login') }}">
                                 @csrf
                                     <div class="nk-block-des">
-                                            <label class="form-label" for="email">Masukkan Email</label>
-                                        </div>
+                                        <label class="form-label" for="email">Masukkan Email</label>
+                                    </div>
                                     <div class="form-group">
                                         <div class="form-control-wrap">
                                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Masukkan Email Anda">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                            @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                     </div><!-- .form-group -->
                                     <div class="form-group">
@@ -72,7 +71,7 @@
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
-                                @enderror
+                                            @enderror
                                         </div>
                                     </div><!-- .form-group -->
                                     <div class="form-group">
@@ -222,4 +221,4 @@
         </div>
     </div>
 </div>
-@endsection  --}}
+@endsection --}}

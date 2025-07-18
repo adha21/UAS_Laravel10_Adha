@@ -171,7 +171,7 @@
                                             @forelse ( $pemesanan as $data)
                                                 <tr>
                                                     <th scope="row">{{$nomor++}}</th>
-                                                    <td>{{$data->id_pemesanan}}</td>
+                                                    <td>{{$data->kode_pemesanan}}</td>
                                                     <td>{{$data->tgl_pesan}}</td>
                                                     <td>{{$data->produk}}</td>
                                                     <td>{{$data->harga}}</td>
@@ -196,12 +196,12 @@
                                                                             <tbody>
                                                                                 <tr>
                                                                                 <td>ID Pemesanan</td>
-                                                                                <td>: {{$data->id_pemesanan}}</td>
+                                                                                <td>: {{$data->kode_pemesanan}}</td>
                                                                                 </tr>
 
                                                                                 <tr>
                                                                                 <td>ID Pelanggan</td>
-                                                                                <td>: {{$data->id_pelanggan}}</td>
+                                                                                <td>: {{ $data->pelanggan->id_pelanggan}}</td>
                                                                                 </tr>
 
                                                                                 <tr>
@@ -231,7 +231,7 @@
 
                                                                                 <tr>
                                                                                 <td>ID Karyawan</td>
-                                                                                <td>: {{$data->id_karyawan}}</td>
+                                                                                <td>: {{ $data->karyawan->id_karyawan}}</td>
                                                                                 </tr>
 
                                                                                 <tr>

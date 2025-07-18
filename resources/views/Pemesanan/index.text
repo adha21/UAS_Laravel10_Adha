@@ -10,10 +10,13 @@
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="{{asset('/images/favicon.png')}}">
     <!-- Page Title  -->
-    <title>Percetakan</title>
+    <title>Pemesanan</title>
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="{{asset('/assets/css/dashlite.css?ver=3.2.2')}}">
     <link id="skin-default" rel="stylesheet" href="{{asset('/assets/css/theme.css?ver=3.2.2')}}">
+    <!-- Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
 </head>
 
 <body class="nk-body bg-lighter npc-general has-sidebar ">
@@ -149,71 +152,147 @@
                         <div class="nk-content-inner">
                             <div class="nk-content-body">
                                 {{-- <p>Starter page for general layout.</p> --}}
-                                <div class="container">
-                                    <div class="row justify-content-center">
-                                        <div class="col-md-8">
-                                            <div class="card">
-                                                <div class="card-header">Form Tambah Data</div>
-                                                <div class="card-body">
-                                                    <form method="post" action="/Pemesanan" enctype="multipart/form-data">
-                                                        @csrf
-                                                        <div class="mb-3">
-                                                            <label for="kode_pemesanan" class="form-label">Kode Pemesanan</label>
-                                                            <input type="text" name="kode_pemesanan" id="kode_pemesanan" class="form-control" value="{{ old('kode_pemesanan') }}">
+                                <div class="card-header">
+                                    <div class="d-flex justify-content-start mb-3"><a href="/Pemesanan/tambah" class="btn btn-primary btn-sm"><i class="fa-solid fa-user-plus"></i> Tambah Data</a></div>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">ID Pemesanan</th>
+                                                <th scope="col">Tanggal Pesan</th>
+                                                <th scope="col">Produk</th>
+                                                <th scope="col">Harga</th>
+                                                <th scope="col">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @forelse ( $pemesanan as $data)
+                                                <tr>
+                                                    <th scope="row">{{$nomor++}}</th>
+                                                    <td>{{$data->id_pemesanan}}</td>
+                                                    <td>{{$data->tgl_pesan}}</td>
+                                                    <td>{{$data->produk}}</td>
+                                                    <td>{{$data->harga}}</td>
+                                                    <td>
+                                                        <!-- Tombol -->
+                                                        <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#detailModal{{$data->id}}">
+                                                            <i class="fa fa-info"></i>
+                                                        </button>
+
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="detailModal{{$data->id}}" tabindex="-1" aria-labelledby="detailModalLabel{{$data->id}}" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h1 class="modal-title fs-5" id="detailModalLabel{{$data->id}}">Detail Pemesanan</h1>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+
+                                                                        <table class="table">
+
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                <td>ID Pemesanan</td>
+                                                                                <td>: {{$data->id_pemesanan}}</td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                <td>ID Pelanggan</td>
+                                                                                <td>: {{$data->id_pelanggan}}</td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                <td>Tanggal Pesan</td>
+                                                                                <td>: {{$data->tgl_pesan}} </td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                <td>Produk</td>
+                                                                                <td>: {{$data->produk}}</td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                <td>Harga</td>
+                                                                                <td>: {{$data->harga}}</td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                <td>Jumlah Pesanan</td>
+                                                                                <td>: {{$data->jumlah}}</td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                <td>Ukuran</td>
+                                                                                <td>: {{$data->ukuran}}</td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                <td>ID Karyawan</td>
+                                                                                <td>: {{$data->id_karyawan}}</td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                <td>Tanggal Selesai</td>
+                                                                                <td>: {{$data->tgl_selesai}}</td>
+                                                                                </tr>
+
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <div class="mb-3">
-                                                            <label for="exampleInputPassword1" class="form-label">Pelanggan</label>
-                                                            <select name="id_pelanggan" id="" class="form-control">
-                                                                <option value="">-Pilih Pelanggan-</option>
-                                                                @foreach ($pelanggan as $item)
-                                                                    <option value="{{$item->id}}">{{$item->nm_pelanggan}}</option>
-                                                                @endforeach
-                                                            </select>
+                                                    </div>
                                                         </div>
-                                                        <div class="mb-3">
-                                                            <label for="tgl_pesan" class="form-label">Tanggal Pesan</label>
-                                                            <input type="date" name="tgl_pesan" id="tgl_pesan" class="form-control" value="{{ old('tgl_pesan') }}">
                                                         </div>
-                                                        <div class="mb-3">
-                                                            <label for="produk" class="form-label">Produk</label>
-                                                            <input type="text" name="produk" id="produk" class="form-control" value="{{ old('produk') }}">
+                                                        {{-- end of detail --}}
+
+                                                        {{-- edit --}}
+                                                        <a href="/Pemesanan/edit/{{$data->id}}" class="btn btn-info btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
+                                                        {{-- edit end --}}
+
+                                                        <!-- Button trigger modal -->
+                                                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{$data->id}}">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                        </button>
+
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="exampleModal{{$data->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Peringatan</h1>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                Yakin Data Pemesanan {{$data->produk}} ingin dihapus?
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                                <form action="Pemesanan/{{$data->id}}" method="post">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button type="submit" class="btn btn-danger">Hapus</button>
+                                                                </form>
+                                                            </div>
+                                                            </div>
                                                         </div>
-                                                        <div class="mb-3">
-                                                            <label for="harga" class="form-label">Harga</label>
-                                                            <input type="text" name="harga" id="harga" class="form-control" value="{{ old('harga') }}">
                                                         </div>
-                                                        <div class="mb-3">
-                                                            <label for="jumlah" class="form-label">Jumlah</label>
-                                                            <input type="text" name="jumlah" id="jumlah" class="form-control" value="{{ old('jumlah') }}">
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="ukuran" class="form-label">Ukuran</label>
-                                                            <select name="ukuran" id="ukuran" class="form-control">
-                                                                <option value="" disabled {{ old('ukuran') ? '' : 'selected' }}>Pilih Ukuran</option>
-                                                                <option value="Besar" {{ old('ukuran') == 'Besar' ? 'selected' : '' }}>Besar</option>
-                                                                <option value="Sedang" {{ old('ukuran') == 'Sedang' ? 'selected' : '' }}>Sedang</option>
-                                                                <option value="Kecil" {{ old('ukuran') == 'Kecil' ? 'selected' : '' }}>Kecil</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="exampleInputPassword1" class="form-label">Karyawan</label>
-                                                            <select name="id_karyawan" id="" class="form-control">
-                                                                <option value="">-Pilih Karyawan-</option>
-                                                                @foreach ($karyawan as $item)
-                                                                    <option value="{{$item->id}}">{{$item->nm_karyawan}}</option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="tgl_selesai" class="form-label">Tanggal Selesai</label>
-                                                            <input type="date" name="tgl_selesai" id="tgl_selesai" class="form-control" value="{{ old('tgl_selesai') }}">
-                                                        </div>
-                                                        <button type="submit" class="btn btn-primary">Tambah</button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                    </td>
+                                                </tr>
+                                            @empty
+                                                <tr>
+                                                    <th colspan="5" scope="row">Data Tidak Ada</th>
+                                                </tr>
+                                            @endforelse
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -238,9 +317,7 @@
     <!-- JavaScript -->
     <script src="{{asset('/assets/js/bundle.js?ver=3.2.2')}}"></script>
     <script src="{{asset('/assets/js/scripts.js?ver=3.2.2')}}"></script>
+
 </body>
 
 </html>
-
-
-

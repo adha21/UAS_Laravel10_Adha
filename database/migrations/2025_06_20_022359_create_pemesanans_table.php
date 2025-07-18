@@ -12,18 +12,23 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pemesanans', function (Blueprint $table) {
-            $table->id();
-            $table->integer('id_pemesanan')->unique();
-            $table->integer('id_pelanggan');
+            $table->id(); // primary key
+            $table->string('kode_pemesanan')->unique(); 
+            $table->unsignedBigInteger('id_pelanggan');
+            $table->unsignedBigInteger('id_karyawan');
             $table->date('tgl_pesan');
             $table->string('produk');
             $table->integer('harga');
             $table->integer('jumlah');
-            $table->enum('ukuran',['kecil','sedang','besar']);
-            $table->integer('id_karyawan');
+            $table->enum('ukuran', ['kecil', 'sedang', 'besar']);
             $table->date('tgl_selesai');
             $table->timestamps();
+
+            // foreign key constraint
+            $table->foreign('id_pelanggan')->references('id')->on('pelanggans')->onDelete('cascade');
+            $table->foreign('id_karyawan')->references('id')->on('karyawans')->onDelete('cascade');
         });
+
     }
 
     /**
